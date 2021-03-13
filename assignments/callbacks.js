@@ -28,59 +28,70 @@ function getLength(arr, cb) {
   return cb(arr.length);
 }
 
-getLength(items, function(length) {
+function printLength (length) {
   console.log(length);
-});
+}
+
+getLength(items, printLength);
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
   return cb(arr[arr.length - 1]);
 }
 
-last(items, function(lastItem) {
+function printLast(lastItem) {
   console.log(lastItem);
-});
+}
+
+last(items, printLast);
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
   return cb(x + y);
 }
 
-sumNums(5, 5, function(sum) {
-  console.log(sum);
-});
+function printNums(x) {
+  console.log(x);
+}
+
+sumNums(5, 5, printNums);
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
   return cb(x * y);
 }
 
-multiplyNums(5, 5, function(multiply) {
-  console.log(multiply);
-});
+function printNums(x) {
+  console.log(x);
+}
+
+multiplyNums(5, 5, printNums);
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
     
-    let count = 0;
+  let count = 0;
 
-    list.forEach(element => {
-    if (list.includes(element)) {
-      count += 1;
-    }
-  });
+  list.forEach(element => {
+   if (element === item) {
+     count += 1;
+   }
+});
 
-  if (count > 1) {
-    return cb(true);
-  } else {
-    return cb(false);
-  }
+if (count >= 1) {
+  return cb(true);
+} else {
+  return cb(false);
+}
 }
 
-contains('Gum', items, function(bool) {
-  return console.log(bool);
-})
+function printContain (bool) {
+  console.log(bool);
+}
+
+contains('Gum', items, printContain);
+contains('Box', items, printContain);
 
 /* STRETCH PROBLEM */
 
